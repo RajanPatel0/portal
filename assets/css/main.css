@@ -734,7 +734,7 @@
     .stats-track {
         display: flex; /* Switch to flex for sliding */
         width: calc(300px * 8); /* Enough width for cards */
-        animation: mobileScroll 25s linear infinite;
+        animation: mobileScroll 15s linear infinite;
         grid-template-columns: none;
     }
 
