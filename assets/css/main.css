@@ -649,6 +649,112 @@
     }
 }
 
+.ikgptu-stats-banner {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    width: 100%;
+    overflow: hidden; /* Important for mobile animation */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-family: 'Inter', sans-serif;
+}
+
+.stats-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.stats-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 Static cards for desktop */
+    gap: 20px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 12px;
+    border-left: 4px solid var(--ptu-blue);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-left-color: var(--ptu-red);
+}
+
+.stat-icon-wrapper {
+    background: rgba(1, 33, 64, 0.05);
+    min-width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon {
+    font-size: 1.2rem;
+    color: var(--ptu-blue);
+}
+
+.stat-card:hover .stat-icon-wrapper { background: var(--ptu-red); }
+.stat-card:hover .stat-icon { color: var(--white); }
+
+.stat-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--ptu-blue);
+    margin-bottom: 4px;
+}
+
+.stat-description {
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.4;
+}
+
+.stat-description span { font-weight: 700; color: var(--text-dark); }
+
+/* --- MOBILE AUTO-SLIDER LOGIC --- */
+
+@media (max-width: 992px) {
+    .ikgptu-stats-banner {
+        padding: 20px 0;
+    }
+    
+    .stats-container {
+        padding: 0; /* Full width for animation */
+    }
+
+    .stats-track {
+        display: flex; /* Switch to flex for sliding */
+        width: calc(300px * 8); /* Enough width for cards */
+        animation: mobileScroll 25s linear infinite;
+        grid-template-columns: none;
+    }
+
+    .stat-card {
+        flex: 0 0 300px; /* Force card width on mobile */
+        margin-left: 15px;
+    }
+
+    /* Infinite Scroll Animation */
+    @keyframes mobileScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-300px * 4)); }
+    }
+
+    /* Optional: Pause animation on touch */
+    .stats-track:active {
+        animation-play-state: paused;
+    }
+}
+
 /* Footer Styling */
 
 .site-footer {
