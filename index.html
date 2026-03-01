@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,8 +36,26 @@
             <div class="hero-visual">
                 <img src="assets/images/placement/hero-student.png" alt="Top Placed Student">
             </div>
+          </div>
+
+          <p class="hero-desc">
+            2000+ PTU students selected at packages of ₹10 Lakh - ₹50 Lakh*
+          </p>
+          <div class="cta-container">
+            <button class="btn-main">EXPLORE PLACEMENTS</button>
+          </div>
         </div>
+
+        <div class="hero-visual">
+          <img
+            src="assets/images/placement/hero-student.png"
+            alt="Top Placed Student"
+          />
+        </div>
+      </div>
     </section>
+
+    <div id="footer-placeholder"></div>
 
     <script>
         // 1. Load the Navbar
@@ -58,6 +76,14 @@
                 }
             })
             .catch(err => console.error("Failed to load navbar:", err));
+    </script>
+
+    <script>
+      fetch("components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data;
+        });
     </script>
 </body>
 </html>
