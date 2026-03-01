@@ -2,6 +2,7 @@
     --ptu-red: #A51C30; /* Official Deep Crimson Red */
     --ptu-blue: #012140;
     --text-dark: #1a1a1a;
+    --white: #ffffff;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -258,6 +259,7 @@
   background-color: #012140;
   color: var(--white);
   padding: 60px 5% 20px;
+  font-family: 'Inter', sans-serif;
 }
 
 .footer-container {
