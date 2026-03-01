@@ -13,47 +13,8 @@
 <body>
 
     <div id="navbar-load"></div>
-
-    <section class="hero-section">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h2 class="sub-heading">Where Ambition Meets Opportunity</h2>
-                <h1 class="main-heading">IKG-PTU Final Year students getting <br><span>Highest Packages</span></h1>
-                
-                <div class="package-stats">
-                    <div class="stat-box">
-                        <span class="currency">₹</span><span class="amount">54.75</span><span class="label">LAKH<br>PACKAGE</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-box">
-                        <span class="currency">₹</span><span class="amount">20+</span><span class="label">LAKH<br>AVG PACKAGE</span>
-                    </div>
-                </div>
-                <div class="cta-container">
-                    <button class="btn-main">EXPLORE PLACEMENTS</button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <img src="assets/images/placement/hero-student.png" alt="Top Placed Student">
-            </div>
-          </div>
-
-          <p class="hero-desc">
-            2000+ PTU students selected at packages of ₹10 Lakh - ₹50 Lakh*
-          </p>
-          <div class="cta-container">
-            <button class="btn-main">EXPLORE PLACEMENTS</button>
-          </div>
-        </div>
-
-        <div class="hero-visual">
-          <img
-            src="assets/images/placement/hero-student.png"
-            alt="Top Placed Student"
-          />
-        </div>
-      </div>
-    </section>
+    
+    <div id="hero-section"></div>
 
     <div id="footer-placeholder"></div>
 
@@ -79,11 +40,21 @@
     </script>
 
     <script>
+      fetch("components/hero.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("hero-section").innerHTML = data;
+        });
+    </script>
+
+    <script>
       fetch("components/footer.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data;
         });
     </script>
+
+    <script src="assets/js/hero-slider.js"></script>
 </body>
 </html>
