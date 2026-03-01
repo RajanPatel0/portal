@@ -1,38 +1,225 @@
 :root {
-    --ptu-blue: #002e5b;
-    --lpu-orange: #f37021; /* Professional Orange accent */
-    --white: #ffffff;
-    --dark: #1a1a1a;
+    --ptu-red: #A51C30; /* Official Deep Crimson Red */
+    --ptu-blue: #012140;
+    --text-dark: #1a1a1a;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-/* Navbar Styling */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+#navbar-load {
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    background: #fff; /* Prevents hero content from showing through during scroll */
 }
 
-.main-logo { height: 60px; }
+.ptu-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 70px; /* Consistent height */
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #eaeaea;
+    font-family: 'Inter', sans-serif;
+}
 
-.nav-links { list-style: none; display: flex; align-items: center; }
-.nav-links li { margin-left: 30px; }
-.nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 14px; }
+/* Logo Section */
+.nav-brand { display: flex; align-items: center; gap: 20px; }
+.nav-brand:hover { display: flex; align-items: center; gap: 20px; cursor:pointer; }
+.logo-wrapper { border-right: 1px solid #ddd; padding-right: 20px; display: flex; gap: 10px; align-items: center; }
+.brand-logo { height: 60px; }
+.univ-name { display: block; font-weight: 800; font-size: 13px; color: var(--ptu-blue); line-height: 1.2; }
+.univ-name:hover { color: var(--ptu-red); }
+.tagline { font-size: 11px; color: #666; font-style: italic; }
 
-.apply-btn a {
-    background: var(--lpu-orange);
-    color: var(--white);
-    padding: 10px 20px;
+/* Navigation Links */
+.nav-list { display: flex; list-style: none; gap: 25px; }
+.nav-link { 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-weight: 600; 
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 10px 0;
+}
+
+/* Advanced Hover Animation */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--ptu-red);
+    transition: var(--transition);
+}
+.nav-link:hover::after { width: 100%; }
+.nav-link:hover { color: var(--ptu-red); }
+
+/* Apply Now Button */
+.nav-actions { display: flex; align-items: center; gap: 15px; }
+.apply-now-btn {
+    background: #d61c1c; /* Contrast Orange for CTAs, or use var(--ptu-red) */
+    color: white;
+    padding: 12px 25px;
     border-radius: 4px;
-    transition: 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
 }
+
+.apply-now-btn:hover {
+    background: var(--ptu-red);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(165, 28, 48, 0.3);
+}
+
+/* ===============================
+   APPLY NOW BUTTON – HOVER FIX
+================================ */
+.apply-now-btn {
+    background: var(--ptu-red);
+    color: #ffffff;
+}
+
+.apply-now-btn:hover {
+    background: var(--ptu-blue);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 46, 91, 0.35);
+}
+
+/* ===============================
+   HAMBURGER MENU
+================================ */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 26px;
+    height: 3px;
+    background: var(--ptu-blue);
+    transition: var(--transition);
+}
+
+/* ===============================
+   RESPONSIVE NAVBAR
+================================ */
+@media (max-width: 1024px) {
+    .ptu-navbar {
+        padding: 0 20px;
+        height: 70px; /* Slimmer for mobile */
+    }
+
+    /* Keep branding and hamburger on top */
+    .nav-brand { z-index: 1100; }
+    .hamburger { z-index: 1100; display: flex; }
+
+    /* The Dropdown Menu - Styled in PTU Blue */
+    .nav-menu {
+        position: absolute;
+        top: 70px; /* Right under the navbar */
+        left: 0;
+        width: 100%;
+        background: var(--ptu-blue);
+        
+        /* Instead of full height, we use max-height for a professional slide */
+        max-height: 0; 
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Active State - Only grows to cover routes */
+    .nav-menu.active {
+        max-height: 500px; /* High enough to cover all links but not full screen */
+        padding: 30px 0;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Links turn white for contrast against Blue BG */
+    .nav-link {
+        color: #ffffff !important;
+        font-size: 15px;
+        width: 100%;
+        display: block;
+        padding: 12px 0;
+        transition: background 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--ptu-red) !important;
+    }
+
+    /* Hide horizontal line on mobile */
+    .nav-link::after { display: none; }
+
+    /* SHOW APPLY BUTTON INSIDE MOBILE MENU */
+    .nav-actions {
+        display: none; /* Hide the desktop-positioned one */
+    }
+
+    /* We'll inject a mobile-specific button via CSS or keep it in the list */
+    .nav-menu .apply-now-btn {
+        display: flex;
+        margin-top: 20px;
+        width: 80%;
+        justify-content: center;
+        background: var(--ptu-red);
+    }
+}
+
+/* ===============================
+   HAMBURGER ANIMATION
+================================ */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Hide mobile-specific list item on desktop */
+.mobile-only-action {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .mobile-only-action {
+        display: block;
+        width: 100%;
+        padding: 0 20px;
+    }
+}
+
 
 /* Hero Section */
 .hero-section {
