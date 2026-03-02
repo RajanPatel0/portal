@@ -1,44 +1,60 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo/ikgptu-logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IKGPTU Placements | Recruiters, Internships & Career Opportunities</title>
-    
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/images/logo/ikgptu-logo.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      IKGPTU Placements | Recruiters, Internships & Career Opportunities
+    </title>
 
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="assets/css/testimonials.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
     <div id="navbar-load"></div>
-    
+
     <div id="hero-section"></div>
 
     <div id="stat-section"></div>
 
+    <div id="testimonial-section"></div>
+
     <div id="footer-placeholder"></div>
 
     <script>
-        // 1. Load the Navbar
-        fetch('components/navbar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('navbar-load').innerHTML = data;
-                
-                // 2. Initialize Hamburger Logic ONLY after navbar is loaded
-                const hamburger = document.getElementById("hamburger");
-                const navMenu = document.getElementById("nav-menu");
+      // 1. Load the Navbar
+      fetch("components/navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar-load").innerHTML = data;
 
-                if (hamburger && navMenu) {
-                    hamburger.addEventListener("click", function() {
-                        hamburger.classList.toggle("active");
-                        navMenu.classList.toggle("active");
-                    });
-                }
-            })
-            .catch(err => console.error("Failed to load navbar:", err));
+          // 2. Initialize Hamburger Logic ONLY after navbar is loaded
+          const hamburger = document.getElementById("hamburger");
+          const navMenu = document.getElementById("nav-menu");
+
+          if (hamburger && navMenu) {
+            hamburger.addEventListener("click", function () {
+              hamburger.classList.toggle("active");
+              navMenu.classList.toggle("active");
+            });
+          }
+        })
+        .catch((err) => console.error("Failed to load navbar:", err));
     </script>
 
     <script>
@@ -50,15 +66,25 @@
     </script>
 
     <script>
-        // Load the Stats Banner Component
-        fetch('components/stat.html')
-            .then((response) => response.text())
-            .then((data) => {
-            document.getElementById("stat-section").innerHTML = data;
-            });
+      // Load the Stats Banner Component
+      fetch("components/stat.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("stat-section").innerHTML = data;
+        });
     </script>
 
     <script>
+      fetch("components/testimonials.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("testimonial-section").innerHTML = data;
+          initTestimonials();
+        });
+    </script>
+
+    <script>
+      // Load the Footer
       fetch("components/footer.html")
         .then((response) => response.text())
         .then((data) => {
@@ -67,5 +93,7 @@
     </script>
 
     <script src="assets/js/hero-slider.js"></script>
-</body>
+
+    <script src="assets/js/testimonials.js"></script>
+  </body>
 </html>
