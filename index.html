@@ -32,6 +32,8 @@
 
     <div id="stat-section"></div>
 
+    <div id="notices-load"></div>
+
     <div id="testimonial-section"></div>
 
     <div id="footer-placeholder"></div>
@@ -71,6 +73,52 @@
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("stat-section").innerHTML = data;
+        });
+    </script>
+    
+    <script>
+        // Append this to your existing component loading logic
+        fetch('components/notices.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('notices-load').innerHTML = data;
+                // Standard modal initialization can go here if needed
+            })
+            .catch(err => console.error("Failed to load notices section:", err));
+
+        /* =========================================
+        Modal (Opening Window) Trigger Logic
+        ========================================= */
+        function openModal(type) {
+            const modal = document.getElementById('noticeModal');
+            const title = document.getElementById('modalTitle');
+            const body = document.getElementById('modalBody');
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling main page
+
+            if (type === 'announcements') {
+                title.textContent = 'All Placement Announcements';
+                // In a real backend, you would use PHP/PHP-Backend to fetch and load all present records here.
+                body.innerHTML = '<p> php backend integrated later can load all present announcements here with standard cards structure.</p>';
+            } else {
+                title.textContent = 'All News & Notices';
+                // In a real backend, you would use PHP/PHP-Backend to fetch and load all present notices here.
+                body.innerHTML = '<p> php backend integrated later can load all present news updates and notices here.</p>';
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('noticeModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Close modal when clicking outside the window
+        document.getElementById('noticeModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
         });
     </script>
 
