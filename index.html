@@ -26,80 +26,747 @@
     />
   </head>
   <body>
-    <div id="navbar-load"></div>
+    <!-- NAVBAR SECTION -->
+    <nav class="ptu-navbar">
+    <div class="nav-brand" onclick="location.reload();">
+        <div class="logo-wrapper">
+            <img src="assets/images/logo/ikgptu-main-logo.png" alt="PTU Logo" class="brand-logo">
+            <div class="logo-text">
+                <span class="univ-name">I.K. GUJRAL PUNJAB <br class="mobile-break"> TECHNICAL UNIVERSITY</span>
+                <span class="tagline">Transforming Education, Transforming India</span>
+            </div>
+        </div>
+    </div>
 
-    <div id="hero-section"></div>
+    <div class="nav-menu" id="nav-menu">
+        <ul class="nav-list">
+            <li><a href="https://ptu.ac.in/placements/training-placements-and-industrial-interface" class="nav-link">ABOUT</a></li>
+            <li><a href="https://ptu.ac.in/placements/mous" class="nav-link">MOUs</a></li>
+            <li><a href="https://placements.ptu.ac.in/placement-drives" class="nav-link">PLACEMENT DRIVES</a></li>
+            <li><a href="https://ptu.ac.in/placements/events" class="nav-link">EVENTS</a></li>
+            <li><a href="https://ptu.ac.in/placements/corporate-relations-alumni-office" class="nav-link">DEPARTMENT-COORDINATORS</a></li>
+            <li><a href="https://placements.ptu.ac.in/login" class="nav-link">STUDENTS</a></li>
+            
+            <li class="mobile-only-action">
+                <a href="https://placements.ptu.ac.in/login" class="apply-now-btn">Apply now <i class="fas fa-arrow-right"></i></a>
+            </li>
+        </ul>
+    </div>
 
-    <div id="stat-section"></div>
+    <div class="nav-actions">
+        <a href="https://placements.ptu.ac.in/login" class="apply-now-btn">Apply now <i class="fas fa-arrow-right"></i></a>
+    </div>
 
-    <div id="recruiters-section"></div>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    </nav>
 
-    <div id="notices-load"></div>
+    <!-- HERO SECTION -->
+    <section class="hero-slider-wrapper">
+        <div class="slider-container" id="heroSlider">
+            <div class="slide active">
+                <div class="slide-image" style="background-image: linear-gradient(to right, rgba(1, 33, 64, 0.9), rgba(1, 33, 64, 0.2)), url('assets/images/hero/campus.jpg');"></div>
+                <div class="slide-content">
+                    <h2 class="sub-heading">Where Ambition Meets Opportunity</h2>
+                    <h1 class="main-heading">IKG-PTU Students getting <br><span>Highest Packages</span></h1>
+                    <div class="package-stats">
+                        <div class="stat-box">
+                            <span class="currency">₹</span><span class="amount">64.87</span><span class="label">LAKH<br>PACKAGE</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-box">
+                            <span class="label">INDUSTRY-LEADING<br>AVERAGE OFFERS</span>
+                        </div>
+                    </div>
+                    <div class="cta-container">
+                        <button class="btn-main">EXPLORE PLACEMENTS <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
 
-    <div id="latest-placements-load"></div>
+            <div class="slide">
+                <div class="slide-image" style="background-image: linear-gradient(to right, rgba(1, 33, 64, 0.9), rgba(1, 33, 64, 0.2)), url('assets/images/hero/Cognizant.jpeg');"></div>
+                <div class="slide-content">
+                    <h2 class="sub-heading">Global Placement Drives</h2>
+                    <h1 class="main-heading">Partnering with <br><span>Industry Leaders</span></h1>
+                    <p class="hero-desc">Cognizant, TCS, Infosys, and more hire from our campus</p>
+                    <div class="cta-container">
+                        <button class="btn-main">EXPLORE PLACEMENTS <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
 
-    <div id="testimonial-section"></div>
+            <div class="slide">
+                <div class="slide-image" style="background-image: linear-gradient(to right, rgba(1, 33, 64, 0.9), rgba(1, 33, 64, 0.2)), url('assets/images/hero/MoU-with-Universal-Business-School-Sydney.jpeg');"></div>
+                <div class="slide-content">
+                    <h2 class="sub-heading">Global Corporate Tie-ups</h2>
+                    <h1 class="main-heading">International <br><span>Collaborations & MOUs</span></h1>
+                    <p class="hero-desc">Strategic partnerships with global universities and corporations</p>
+                    <div class="cta-container">
+                        <button class="btn-main">EXPLORE PLACEMENTS <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
 
-    <div id="faq-section"></div>
+            <div class="slide">
+                <div class="slide-image" style="background-image: linear-gradient(to right, rgba(1, 33, 64, 0.9), rgba(1, 33, 64, 0.2)), url('assets/images/hero/alumni-meet-ikgptu-1.jpg');"></div>
+                <div class="slide-content">
+                    <h2 class="sub-heading">Strong Alumni Network</h2>
+                    <h1 class="main-heading">200K+ <br><span>Successful Alumni</span></h1>
+                    <p class="hero-desc">Our graduates are making waves in top companies worldwide with 250+ affiliated colleges.</p>
+                    <div class="cta-container">
+                        <button class="btn-main">EXPLORE PLACEMENTS <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
 
-    <div id="footer-placeholder"></div>
+            <div class="slide">
+                <div class="slide-image" style="background-image: linear-gradient(to right, rgba(1, 33, 64, 0.9), rgba(1, 33, 64, 0.2)), url('assets/images/hero/Pisoft.jpg');"></div>
+                <div class="slide-content">
+                    <h2 class="sub-heading">Tech Innovation Hub</h2>
+                    <h1 class="main-heading">Cutting-edge <br><span>Technology Training</span></h1>
+                    <p class="hero-desc">Industry-ready curriculum with hands-on project experience</p>
+                    <div class="cta-container">
+                        <button class="btn-main">EXPLORE PLACEMENTS <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        <button class="slider-nav prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-nav next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+
+        <div class="slider-dots" id="sliderDots"></div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="ikgptu-stats-banner">
+    <div class="stats-container">
+        <div class="stats-track">
+            <div class="stat-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-university stat-icon"></i></div>
+                <div class="stat-text-content">
+                    <h4 class="stat-title">Legacy</h4>
+                    <p class="stat-description"><span>Public State University Established in 1997</span> to promote Technical education across globe</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-globe-americas stat-icon"></i></div>
+                <div class="stat-text-content">
+                    <h4 class="stat-title">Global Network</h4>
+                    <p class="stat-description"><span>Over 250+</span> affiliated colleges and <span>Lakhs</span> of successful Alumni globally.</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-briefcase stat-icon"></i></div>
+                <div class="stat-text-content">
+                    <h4 class="stat-title">Placements</h4>
+                    <p class="stat-description">Dedicated <span>Training & Placement Cell | E-Cell | BIC</span> connecting students with top recruiters.</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon-wrapper"><i class="fas fa-award stat-icon"></i></div>
+                <div class="stat-text-content">
+                    <h4 class="stat-title">Accreditations</h4>
+                    <p class="stat-description">Recognized by <span>AICTE, UGC, NAAC</span> and accredited with top rankings in India.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- COMPANIES SECTION -->
+    <section class="ptu-companies-slider">
+    <div class="slider-container">
+        
+        <div class="companies-header">
+            <span class="eyebrow">OUR RECRUITERS</span>
+            <h2 class="section-title">Global Industry Leaders Trust IKG-PTU</h2>
+            <p class="section-subtitle">2225+ Placement offers from top Fortune 500 companies, MNCs, and leading Indian conglomerates.</p>
+        </div>
+
+        <div class="company-track-wrapper">
+            <div class="company-track row-fast">
+                <div class="company-logo"><img src="assets/images/placement/logo/tcs.png" alt="TCS"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/grazitti.png" alt="Grazitti"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/cognizant1.png" alt="Cognizant"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/wipro.png" alt="Wipro"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/capegemini.png" alt="Capegemini"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/microsoft.png" alt="Microsoft"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/tech-mahindra.png" alt="Tech Mahindra"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/zscalar.png" alt="Zscalar"></div>
+            </div>
+
+            <div class="company-track row-reverse">
+                <div class="company-logo"><img src="assets/images/placement/logo/10.png" alt="JTG"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/elect.png" alt="Electronics"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/gastrolab.png" alt="Gastrolab"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/godrej.png" alt="Godrej"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/increff.png" alt="Increff"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/jaro.png" alt="Jaro"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/lt.png" alt="LT"></div>
+                <div class="company-logo"><img src="assets/images/placement/logo/zscalar.png" alt="Zscalar"></div>
+            </div>
+        </div>
+        
+        <div class="companies-footer">
+            <a href="https://ptu.ac.in/placements/" class="btn-primary">Explore All Recruiters →</a>
+        </div>
+    </div>
+    </section>
+
+    <!-- NOTICES SECTION -->
+    <section class="ptu-notices-section">
+    <div class="notices-section-container">
+        
+        <div class="notices-main-header">
+            <h1 class="section-title">Announcements | Notice Board</h1>
+            <p class="section-subtitle">Stay updated with the latest placement drives, corporate news, and important university notices.</p>
+        </div>
+
+        <div class="notices-flex-wrapper">
+            
+            <div class="notice-column announcements-col">
+                <div class="column-header crimson-theme">
+                    <i class="fas fa-bullhorn header-icon"></i>
+                    <h2>Latest Announcements</h2>
+                </div>
+                
+                <div class="notices-list-container scrollbar-crimson">
+                    <div class="notice-card announcement">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 2 days ago</span>
+                            <span class="status-tag important">IMPORTANT</span>
+                        </div>
+                        <h3 class="card-title">Tata Consultancy Services (TCS) - Campus Recruitment Drive 2026</h3>
+                        <p class="card-desc">Registration open for B.Tech (CSE/ECE/IT) students. Pre-placement session mandatory.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-pdf"><i class="fas fa-file-pdf"></i> View PDF</a>
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Visit Link</a>
+                        </div>
+                    </div>
+
+                    <div class="notice-card announcement">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 1 week ago</span>
+                        </div>
+                        <h3 class="card-title">EPAM Systems India Pvt Ltd - Virtual Off-Campus Drive</h3>
+                        <p class="card-desc">Online Test: 23-Jan-2026 (Friday). Venue: Virtual Mode.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-pdf"><i class="fas fa-file-pdf"></i> View PDF</a>
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Visit Link</a>
+                        </div>
+                    </div>
+
+                    <div class="notice-card announcement">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 2 days ago</span>
+                            <span class="status-tag important">IMPORTANT</span>
+                        </div>
+                        <h3 class="card-title">Tata Consultancy Services (TCS) - Campus Recruitment Drive 2026</h3>
+                        <p class="card-desc">Registration open for B.Tech (CSE/ECE/IT) students. Pre-placement session mandatory.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-pdf"><i class="fas fa-file-pdf"></i> View PDF</a>
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Visit Link</a>
+                        </div>
+                    </div>
+
+                    <div class="notice-card announcement">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 1 week ago</span>
+                        </div>
+                        <h3 class="card-title">EPAM Systems India Pvt Ltd - Virtual Off-Campus Drive</h3>
+                        <p class="card-desc">Online Test: 23-Jan-2026 (Friday). Venue: Virtual Mode.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-pdf"><i class="fas fa-file-pdf"></i> View PDF</a>
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Visit Link</a>
+                        </div>
+                    </div>
+                    <div class="notice-card announcement">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 2 days ago</span>
+                            <span class="status-tag important">IMPORTANT</span>
+                        </div>
+                        <h3 class="card-title">Tata Consultancy Services (TCS) - Campus Recruitment Drive 2026</h3>
+                        <p class="card-desc">Registration open for B.Tech (CSE/ECE/IT) students. Pre-placement session mandatory.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-pdf"><i class="fas fa-file-pdf"></i> View PDF</a>
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Visit Link</a>
+                        </div>
+                    </div>
+
+                    <div class="notice-card announcement">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 1 week ago</span>
+                        </div>
+                        <h3 class="card-title">EPAM Systems India Pvt Ltd - Virtual Off-Campus Drive</h3>
+                        <p class="card-desc">Online Test: 23-Jan-2026 (Friday). Venue: Virtual Mode.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-pdf"><i class="fas fa-file-pdf"></i> View PDF</a>
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Visit Link</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <a href="#" class="view-all-band crimson-band" onclick="openModal('announcements')">
+                    View All Announcements <div class="icon-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+
+            <div class="notice-column notices-col">
+                <div class="column-header navy-theme">
+                    <i class="fas fa-chalkboard-teacher header-icon"></i>
+                    <h2>Important News & Notices</h2>
+                </div>
+                
+                <div class="notices-list-container scrollbar-navy">
+                    <div class="notice-card important-notice">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 1 day ago</span>
+                        </div>
+                        <h3 class="card-title">IKGPTU Placements sets record with 1500+ offers</h3>
+                        <p class="card-desc">University establishes new benchmark for placements with leading MNCs participating.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="notice-card important-notice expired">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 2 weeks ago</span>
+                            <span class="status-tag expired">EXPIRED</span>
+                        </div>
+                        <h3 class="card-title">Jaro Education - Pool Campus Drive for Management Students</h3>
+                        <p class="card-desc">The application deadline has passed for this opportunity.</p>
+                    </div>
+
+                    <div class="notice-card important-notice">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 1 day ago</span>
+                        </div>
+                        <h3 class="card-title">IKGPTU Placements sets record with 1500+ offers</h3>
+                        <p class="card-desc">University establishes new benchmark for placements with leading MNCs participating.</p>
+                        <div class="card-actions">
+                            <a href="#" class="btn-link"><i class="fas fa-external-link-alt"></i> Read More</a>
+                        </div>
+                    </div>
+
+                    <div class="notice-card important-notice expired">
+                        <div class="card-meta">
+                            <span class="post-date"><i class="far fa-calendar-alt"></i> 2 weeks ago</span>
+                            <span class="status-tag expired">EXPIRED</span>
+                        </div>
+                        <h3 class="card-title">Jaro Education - Pool Campus Drive for Management Students</h3>
+                        <p class="card-desc">The application deadline has passed for this opportunity.</p>
+                    </div>
+                    
+                </div>
+                
+                <a href="#" class="view-all-band navy-band" onclick="openModal('notices')">
+                    View All News & Updates <div class="icon-circle"><i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <div id="noticeModal" class="notices-modal-overlay hidden">
+        <div class="modal-window">
+            <div class="modal-header">
+                <h2 id="modalTitle">All Announcements</h2>
+                <button class="close-modal" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                </div>
+        </div>
+    </div>
+
+    <!-- LATEST PLACEMENTS SECTION -->
+    <section class="latest-placements-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="header-left">
+                <h2 class="title">Glance at the <br><span>Latest Placement Updates</span></h2>
+            </div>
+            <div class="slider-controls">
+                <button class="control-btn prev" id="placement-prev"><i class="fas fa-arrow-left"></i></button>
+                <button class="control-btn next" id="placement-next"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="placements-slider-wrapper">
+            <div class="placements-track" id="placements-track">
+                
+                <div class="placement-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Medoc-2026-Placements.jpeg" alt="Stellar Placements">
+                        <div class="company-badge">RELTIO</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">Stellar Placements at IKG-PTU: ₹17.53 LPA with Reltio</h3>
+                        <p class="placement-desc">IKG-PTU proudly congratulates Muhammad Yusuf Kamal and team on securing impressive offers through rigorous technical expertise.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card highlight">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Bajaj-Allianz-2024-Placement.jpeg" alt="SAP Labs India">
+                        <div class="company-badge navy">SAP LABS</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">SAP Labs India picks IKG-PTU's ML & AI talent at ₹20.75 LPA</h3>
+                        <p class="placement-desc">Four B.Tech students have secured coveted positions at SAP Labs India with an outstanding package, reinforcing PTU's reputation.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Cognizant-2025-Placement.jpeg" alt="Top Silicon Valley">
+                        <div class="company-badge">GOOGLE</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">IKG-PTU Students placed with Top Silicon Valley companies</h3>
+                        <p class="placement-desc">Our graduates continue to break records with placements in Google, Apple, and Microsoft with packages up to ₹2.5 Crore.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Enest-Technologies-Pvt-Ltd-2024-Placement.jpeg" alt="Campus Placement">
+                        <div class="company-badge navy">COGNIZANT</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">Mass Recruitment Drive: 150+ Students Placed in Cognizant</h3>
+                        <p class="placement-desc">The 2025-26 batch sees a massive surge in Day 1 recruitment from top-tier IT services firms.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Graziti-Interactive-for-26.jpg" alt="Stellar Placements">
+                        <div class="company-badge">RELTIO</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">Stellar Placements at IKG-PTU: ₹17.53 LPA with Reltio</h3>
+                        <p class="placement-desc">IKG-PTU proudly congratulates Muhammad Yusuf Kamal and team on securing impressive offers through rigorous technical expertise.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card highlight">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/PHOTO-2024.jpg" alt="SAP Labs India">
+                        <div class="company-badge navy">SAP LABS</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">SAP Labs India picks IKG-PTU's ML & AI talent at ₹20.75 LPA</h3>
+                        <p class="placement-desc">Four B.Tech students have secured coveted positions at SAP Labs India with an outstanding package, reinforcing PTU's reputation.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Solitaire-Infosys-2025-Placement.jpeg" alt="Top Silicon Valley">
+                        <div class="company-badge">GOOGLE</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">IKG-PTU Students placed with Top Silicon Valley companies</h3>
+                        <p class="placement-desc">Our graduates continue to break records with placements in Google, Apple, and Microsoft with packages up to ₹2.5 Crore.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Solitaire-Infosys-Pvt-Ltd-2024-Placement.jpeg" alt="Campus Placement">
+                        <div class="company-badge navy">COGNIZANT</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">Mass Recruitment Drive: 150+ Students Placed in Cognizant</h3>
+                        <p class="placement-desc">The 2025-26 batch sees a massive surge in Day 1 recruitment from top-tier IT services firms.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card highlight">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Tech-MindSparc-Innovations-2025-Placement.jpeg" alt="SAP Labs India">
+                        <div class="company-badge navy">SAP LABS</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">SAP Labs India picks IKG-PTU's ML & AI talent at ₹20.75 LPA</h3>
+                        <p class="placement-desc">Four B.Tech students have secured coveted positions at SAP Labs India with an outstanding package, reinforcing PTU's reputation.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="placement-card">
+                    <div class="card-image-wrapper">
+                        <img src="assets/images/placement/Techvein-2025-Placement.jpeg" alt="Top Silicon Valley">
+                        <div class="company-badge">GOOGLE</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="placement-title">IKG-PTU Students placed with Top Silicon Valley companies</h3>
+                        <p class="placement-desc">Our graduates continue to break records with placements in Google, Apple, and Microsoft with packages up to ₹2.5 Crore.</p>
+                        <a href="#" class="know-more-link">Know more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials-section">
+  <h2 class="section-title">Learners to Leaders</h2>
+
+  <div class="testimonial-slider">
+    <button class="slider-btn prev">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="testimonial-wrapper">
+      <div class="testimonial-track">
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="assets/images/testimonials/nirmal.jpg" alt="Nirmal Nambiar" />
+            <div class="testimonial-content">
+              <p class="quote">
+                "Impact should be the reason for celebration, not mere existence.<br>
+                My experience at IKGPTU helped me build strong fundamentals."
+              </p>
+              <h4>Nirmal Nambiar</h4>
+              <span>-Founder & CEO, AI Entrepreneur (Ex-Microsoft)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="assets/images/testimonials/charanj.webp" alt="Charanjit Singh Channi" />
+            <div class="testimonial-content">
+              <p class="quote">
+                "Expressed gratitude for the academics provided by the university through distance education."
+              </p>
+              <h4>Charanjit Singh Channi</h4>
+              <span>-Member of Parliament, Former Chief Minister of Punjab</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="assets/images/testimonials/vishnu.jpg" alt="Vishnu Bathla" />
+            <div class="testimonial-content">
+              <p class="quote">
+                "Campus culture built leadership skills and long-term
+                professional relationships."
+              </p>
+              <h4>Vishnu Bathla</h4>
+              <span>-Software Engineer (SWE-2) at Google</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="assets/images/testimonials/himanshu.jpeg" alt="Himanshu Bhaskar" />
+            <div class="testimonial-content">
+              <p class="quote">
+                "Persistently tackle each obstacle that comes your way, and success will follow."
+              </p>
+              <h4>Himanshu Bhaskar</h4>
+              <span>-IRS (Indian Revenue Service)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="testimonial-slide">
+          <div class="testimonial-card">
+            <img src="assets/images/testimonials/raghav.jpg" alt="Raghav Trikha" />
+            <div class="testimonial-content">
+              <p class="quote">
+                "Emphasized essential skill development and the transition from campus to corporate life."
+              </p>
+              <h4>Raghav Trikha</h4>
+              <span>-Professional at Grazitti Interactive</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <button class="slider-btn next">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="ptu-faq-section">
+    <div class="container">
+        <div class="faq-header">
+            <span class="eyebrow">HELP CENTER</span>
+            <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+            <p class="section-subtitle">Find answers to common queries regarding placement processes, eligibility, and corporate relations at IKGPTU.</p>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-column">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I register for the upcoming campus placement drives?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Students must register through the official IKGPTU Placement Portal using their University Roll Number. Ensure your profile is updated with the latest CGPA and professional resume to be eligible for company-specific shortlisting.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is the minimum eligibility criteria for LPU-standard placements?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>While criteria vary by recruiter, a minimum CGPA of 6.5-7.0 with no active backlogs is generally required for Tier-1 companies. Some MNCs also require a minimum of 60% marks in 10th and 12th grades.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Does the university provide pre-placement training?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, IKGPTU conducts rigorous Corporate Excellence Programs (CEP) including mock interviews, soft skills workshops, and technical coding bootcamps to prepare students for high-package roles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-column">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Which top companies regularly recruit from IKGPTU?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our regular recruiters include industry giants like TCS, Infosys, Cognizant, Wipro, SAP Labs, and Reltio, with packages ranging from ₹4.5 LPA to over ₹20 LPA.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can alumni access the placement portal for job updates?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, the Corporate Relations & Alumni Office provides a dedicated portal for alumni to explore lateral hiring opportunities and off-campus drive notifications.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What should I do if I face a technical glitch during an online test?</span>
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Immediately report the issue to your Department Coordinator or the T&P volunteer present. Documentation (like screenshots) of the error is recommended for further escalation to the company HR.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-footer">
+            <p>Still have questions? <a href="#">Contact the Placement Cell</a></p>
+        </div>
+    </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col about-section">
+      <h3>Training & Placement Cell</h3>
+      <p class="university-name">I. K. Gujral Punjab Technical University</p>
+      <p>
+        Bridging students with top recruiters through structured campus drives
+        and industry partnerships.
+      </p>
+    </div>
+
+    <div class="footer-col accordion-col">
+      <h4 class="footer-toggle">Quick Links <i class="fas fa-chevron-down mobile-only"></i></h4>
+      <ul class="footer-list">
+        <li><a href="https://ptu.ac.in/placements/placement-statistics/">Placement Statistics</a></li>
+        <li><a href="https://ptu.ac.in/placements/training-programs/">Training Programs</a></li>
+        <li><a href="https://ptu.ac.in/placements/upcoming-drives/">Upcoming Drives</a></li>
+        <li><a href="https://ptu.ac.in/faqs/">FAQs</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col accordion-col">
+      <h4 class="footer-toggle">For Recruiters <i class="fas fa-chevron-down mobile-only"></i></h4>
+      <ul class="footer-list">
+        <li><a href="https://ptu.ac.in/placements/why-recruit-from-us/">Why Recruit From Us</a></li>
+        <li><a href="https://ptu.ac.in/placements/placement-brochure/">Placement Brochure</a></li>
+        <li><a href="https://ptu.ac.in/placements/schedule-campus-drive/">Schedule Campus Drive</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col accordion-col">
+      <h4 class="footer-toggle">Contact <i class="fas fa-chevron-down mobile-only"></i></h4>
+      <div class="footer-list">
+        <p><strong>Placement Officer:</strong> Sh. Mohit Jain</p>
+        <p class="contact-item">
+          <i class="fa-solid fa-envelope footer-icon"></i>
+          <a href="mailto:mohitkjain@ptu.ac.in">mohitkjain@ptu.ac.in</a>
+        </p>
+        <p class="contact-item">
+          <i class="fa-solid fa-phone footer-icon"></i>
+          <a href="tel:+919478098136">+91-9478098136</a>
+        </p>
+        <p class="contact-item">
+          <i class="fa-solid fa-location-dot footer-icon"></i>
+          <span>Jalandhar - Kapurthala Highway, Punjab</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 <a href="https://ptu.ac.in/" target="_blank" style="color:inherit; opacity:1; text-decoration:none;">I. K. Gujral Punjab Technical University</a> | All Rights Reserved</p>
+  </div>
+    </footer>
 
     <script>
-      // 1. Load the Navbar
-      fetch("components/navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar-load").innerHTML = data;
+      // 1. Initialize Hamburger Logic
+      const hamburger = document.getElementById("hamburger");
+      const navMenu = document.getElementById("nav-menu");
 
-          // 2. Initialize Hamburger Logic ONLY after navbar is loaded
-          const hamburger = document.getElementById("hamburger");
-          const navMenu = document.getElementById("nav-menu");
-
-          if (hamburger && navMenu) {
-            hamburger.addEventListener("click", function () {
-              hamburger.classList.toggle("active");
-              navMenu.classList.toggle("active");
-            });
-          }
-        })
-        .catch((err) => console.error("Failed to load navbar:", err));
-    </script>
-
-    <script>
-      fetch("components/hero.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("hero-section").innerHTML = data;
+      if (hamburger && navMenu) {
+        hamburger.addEventListener("click", function () {
+          hamburger.classList.toggle("active");
+          navMenu.classList.toggle("active");
         });
+      }
     </script>
 
     <script>
-      // Load the Stats Banner Component
-      fetch("components/stat.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("stat-section").innerHTML = data;
-        });
-    </script>
-
-    <script>
-        fetch('components/companies.html')
-      .then(response => response.text())
-      .then(data => {
-          document.getElementById('recruiters-section').innerHTML = data;
-      });
-    </script>
-    
-    <script>
-        // Append this to your existing component loading logic
-        fetch('components/notices.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('notices-load').innerHTML = data;
-                // Standard modal initialization can go here if needed
-            })
-            .catch(err => console.error("Failed to load notices section:", err));
-
         /* =========================================
         Modal (Opening Window) Trigger Logic
         ========================================= */
@@ -137,24 +804,7 @@
     </script>
 
     <script>
-      fetch("components/testimonials.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("testimonial-section").innerHTML = data;
-          initTestimonials();
-        });
-    </script>
-
-    <script>
-      // Component Loader
-        fetch('components/latestPlacement.html')
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('latest-placements-load').innerHTML = data;
-                initPlacementSlider(); // Initialize the slider logic after loading
-            });
-
-        // Simple Slider Logic
+        // Simple Slider Logic for Placements
         function initPlacementSlider() {
             const track = document.getElementById('placements-track');
             const next = document.getElementById('placement-next');
@@ -178,22 +828,14 @@
                 }
             });
         }
+        
+        // Initialize placement slider when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initPlacementSlider();
+        });
     </script>
 
     <script>
-        // 1. Fetch the FAQ component
-        fetch("components/faq.html")
-          .then((response) => response.text())
-          .then((data) => {
-            // 2. Inject the HTML into the container
-            const container = document.getElementById("faq-section");
-            container.innerHTML = data;
-
-            // 3. Initialize the Accordion logic ONLY after data is loaded
-            initFaqAccordion();
-          })
-          .catch(err => console.error("Error loading FAQ:", err));
-
         function initFaqAccordion() {
           const faqItems = document.querySelectorAll('.faq-item');
 
@@ -216,56 +858,54 @@
             });
           });
         }
+        
+        // Initialize FAQ accordion when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initFaqAccordion();
+        });
       </script>
 
     <script>
-  // 1. Fetch the Footer
-  fetch("components/footer.html")
-    .then((response) => response.text())
-    .then((data) => {
-      // 2. Inject the HTML
-      document.getElementById("footer-placeholder").innerHTML = data;
-
-      // 3. IMPORTANT: Initialize the accordion logic ONLY after the HTML is injected
-      initFooterAccordion();
-    })
-    .catch(err => console.error("Error loading footer:", err));
-
-  // Footer Mobile Accordion Logic
-  function initFooterAccordion() {
-    // We select toggles here because they now exist in the DOM
-    const toggles = document.querySelectorAll('.footer-toggle');
-    
-    if (toggles.length > 0) {
-      toggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          // Check if we are on mobile view
-          if (window.innerWidth <= 768) {
-            const parent = toggle.parentElement;
+        // Footer Mobile Accordion Logic
+        function initFooterAccordion() {
+            // We select toggles here because they now exist in the DOM
+            const toggles = document.querySelectorAll('.footer-toggle');
             
-            // Close other accordion columns
-            document.querySelectorAll('.accordion-col').forEach(col => {
-              if (col !== parent) col.classList.remove('active');
-            });
+            if (toggles.length > 0) {
+              toggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                  // Check if we are on mobile view
+                  if (window.innerWidth <= 768) {
+                    const parent = toggle.parentElement;
+                    
+                    // Close other accordion columns
+                    document.querySelectorAll('.accordion-col').forEach(col => {
+                      if (col !== parent) col.classList.remove('active');
+                    });
 
-            // Toggle the clicked one
-            parent.classList.toggle('active');
+                    // Toggle the clicked one
+                    parent.classList.toggle('active');
+                  }
+                });
+              });
+            }
           }
-        });
-      });
-    }
-  }
 
-  // Handle window resizing (Optional but professional)
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-      // Remove active classes if user rotates phone to landscape/desktop
-      document.querySelectorAll('.accordion-col').forEach(col => {
-        col.classList.remove('active');
-      });
-    }
-  });
-</script>
+          // Handle window resizing (Optional but professional)
+          window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+              // Remove active classes if user rotates phone to landscape/desktop
+              document.querySelectorAll('.accordion-col').forEach(col => {
+                col.classList.remove('active');
+              });
+            }
+          });
+
+          // Initialize footer accordion when DOM is ready
+          document.addEventListener('DOMContentLoaded', function() {
+              initFooterAccordion();
+          });
+    </script>
 
     <script src="assets/js/hero-slider.js"></script>
 
