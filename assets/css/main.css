@@ -30,7 +30,19 @@
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 20px;
+  cursor: pointer;
+  flex-shrink: 1; /* Allows the brand to shrink if menu needs space */
+  min-width: 0;   /* Fixes flexbox overflow issues */
+}
+
+.logo-wrapper {
+  border-right: 1px solid #ddd;
+  padding-right: 15px;
+  margin-right: 5px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  transition: var(--transition);
 }
 .nav-brand:hover {
   display: flex;
@@ -38,32 +50,39 @@
   gap: 20px;
   cursor: pointer;
 }
-.logo-wrapper {
-  border-right: 1px solid #ddd;
-  padding-right: 20px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
 .brand-logo {
-  height: 60px;
+  height: 55px; /* Slightly smaller for better fit */
+  width: auto;
+  flex-shrink: 0;
 }
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
 .univ-name {
   display: block;
   font-weight: 800;
-  font-size: 13px;
+  font-size: clamp(10px, 2vw, 13px); /* Fluid font: min 10px, max 13px */
   color: var(--ptu-blue);
-  line-height: 1.2;
+  line-height: 1.1;
+  white-space: nowrap; /* Prevents awkward word breaking */
+  transition: var(--transition);
 }
 .univ-name:hover {
   color: var(--ptu-red);
 }
 .tagline {
-  font-size: 11px;
+  font-size: clamp(8px, 1.5vw, 11px); /* Fluid font for tagline */
   color: #666;
   font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Gracefully cuts off if too long */
 }
-
 /* Navigation Links */
 .nav-list {
   display: flex;
@@ -165,6 +184,16 @@
     height: 70px; /* Slimmer for mobile */
   }
 
+  .logo-wrapper {
+    padding-right: 10px;
+    gap: 8px;
+    border-right: none; /* Remove border on mobile to save horizontal pixels */
+  }
+
+  .brand-logo {
+    height: 45px; /* Smaller logo for mobile */
+  }
+
   /* Keep branding and hamburger on top */
   .nav-brand {
     z-index: 1100;
@@ -240,6 +269,23 @@
     width: 80%;
     justify-content: center;
     background: var(--ptu-red);
+  }
+}
+
+@media (max-width: 480px) {
+  /* On very small phones, we hide the tagline to prioritize the University Name */
+  .tagline {
+    display: none;
+  }
+
+  .univ-name {
+    font-size: 11px;
+    white-space: normal; /* Allow name to wrap to 2 lines instead of expanding navbar */
+    max-width: 150px;
+  }
+
+  .logo-wrapper {
+    padding-right: 5px;
   }
 }
 
@@ -828,6 +874,222 @@
   }
 }
 
+/* --- IKGPTU Company Slider Section --- */
+.ptu-companies-slider {
+  padding: 80px 0;
+  background-color: #f9f9fa; /* Prevents hero content from showing through during scroll */
+  overflow: hidden; /* Important for slider effect */
+  border-bottom: 1px solid #eaeaea;
+  font-family: 'Inter', sans-serif;
+}
+
+.slider-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+
+/* Companies Header */
+.companies-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--ptu-red);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--ptu-blue);
+  margin-bottom: 15px;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Infinite Track Logic */
+.company-track-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+  /* World Class Fade Effect: Gradient overlays on left and right */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.company-track {
+  display: flex;
+  justify-content: space-around;
+  width: calc(200px * 14); /* Number of logos in one group * Width of logo * 2 for seamlessness */
+}
+
+/* The Advanced Animation */
+@keyframes infiniteScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-200px * 7)); } /* Must move exactly the width of the original Group 1 */
+}
+
+.row-fast {
+  animation: infiniteScroll 40s linear infinite; /* Adjust time for speed */
+}
+
+.row-reverse {
+  animation: infiniteScroll 50s linear infinite reverse; /* Adds complexity & professionalism */
+}
+
+/* Company Logo Card (Hover Effectiveness) */
+.company-logo {
+  flex: 0 0 160px; /* Base width */
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20px;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  transition: var(--transition);
+}
+
+.company-logo img {
+  max-width: 120px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  filter: grayscale(1); /* Start as grey for high-end look */
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+/* World Standard Hover Effects */
+.company-logo:hover {
+  border-color: var(--ptu-red);
+  transform: scale(1.1) translateY(-5px); /* Trendy 'lift' effect */
+  box-shadow: 0 10px 30px rgba(165, 28, 48, 0.15); /* PTU Red Glow */
+}
+
+.company-logo:hover img {
+  filter: grayscale(0); /* Return to color on hover */
+  opacity: 1;
+}
+
+/* Companies Footer */
+.companies-footer {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Adjust the existing .btn-primary from previous prompts */
+.companies-footer .btn-primary {
+  background: var(--ptu-red);
+   /* Contrast Orange for CTAs, or use var(--ptu-red) */
+  color: white;
+  padding: 12px 25px;
+  border-radius: 4px;
+}
+
+.companies-footer .btn-primary:hover {
+  background: var(--ptu-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Responsive Adaptations --- */
+@media (max-width: 1024px) {
+  .section-title { font-size: 2.2rem; }
+  .slider-container { padding: 0 20px; }
+  .companies-header { margin-bottom: 40px; }
+}
+
+/* --- Updated Responsive Adaptations for Mobile Slider --- */
+
+@media (max-width: 768px) {
+    .ptu-companies-slider { 
+        padding: 40px 0; 
+    }
+    
+    .companies-header .section-title { 
+        font-size: 1.8rem; 
+        padding: 0 10px;
+    }
+
+    .section-subtitle { 
+        font-size: 0.85rem; 
+        padding: 0 15px; 
+    }
+
+    /* Keep the "fade" effect on mobile but make it subtler */
+    .company-track-wrapper {
+        -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        gap: 10px; /* Tighter gap for mobile */
+        padding: 10px 0;
+    }
+
+    /* Re-enable and optimize the animation for mobile */
+    .company-track {
+        display: flex;
+        flex-wrap: nowrap; /* Prevent wrapping to grid */
+        width: max-content; /* Ensure it stays in one long line */
+    }
+
+    /* Speed up the animation slightly for mobile's smaller width */
+    .row-fast {
+        animation: infiniteScroll 25s linear infinite; 
+    }
+
+    .row-reverse {
+        animation: infiniteScroll 30s linear infinite reverse;
+    }
+
+    /* Scale down the logo cards for mobile screens */
+    .company-logo {
+        flex: 0 0 120px; /* Smaller base width for mobile */
+        height: 65px;
+        margin: 0 10px;
+        padding: 8px;
+    }
+
+    .company-logo img {
+        max-width: 80px;
+        max-height: 40px;
+        filter: grayscale(0); /* On mobile, keep logos in color for better visibility */
+        opacity: 1;
+    }
+
+    /* Adjust the animation keyframes for the smaller logo width */
+    @keyframes infiniteScroll {
+        0% { transform: translateX(0); }
+        /* 120px (width) + 20px (margin total) = 140px. 140 * 7 logos = 980px */
+        100% { transform: translateX(-980px); } 
+    }
+    
+    .companies-footer {
+        margin-top: 30px;
+    }
+    
+    .companies-footer .btn-primary {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
 
 /* =========================================
    PTU ANNOUNCEMENTS & NOTICES SECTION
@@ -1139,110 +1401,434 @@
     }
 }
 
+/* =========================================
+   LATEST PLACEMENTS SECTION STYLING
+========================================= */
+.latest-placements-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    overflow: hidden;
+    font-family: "Inter", sans-serif;
+}
 
-/* Footer Styling */
+.latest-placements-section .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
 
+/* Section Header */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.section-header .title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.2;
+}
+
+.section-header .title span {
+    font-weight: 800;
+    color: var(--ptu-blue);
+    display: block;
+}
+
+/* Slider Controls */
+.slider-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: #fff;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.control-btn:hover {
+    background: var(--ptu-red);
+    color: #fff;
+    border-color: var(--ptu-red);
+}
+
+.control-btn.next {
+    background: var(--ptu-red);
+    color: #fff;
+}
+
+/* Slider Track */
+.placements-slider-wrapper {
+    overflow: visible; /* Allows shadows to show */
+}
+
+.placements-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease;
+}
+
+/* Placement Cards */
+.placement-card {
+    flex: 0 0 calc(33.333% - 20px);
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.placement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.card-image-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.placement-card:hover .card-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.company-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    background: var(--ptu-red);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+.company-badge.navy { background: var(--ptu-blue); }
+
+.card-content {
+    padding: 30px;
+}
+
+.placement-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ptu-blue);
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.placement-desc {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    height: 75px; /* Keeps card heights consistent */
+    overflow: hidden;
+}
+
+.know-more-link {
+    text-decoration: none;
+    color: var(--ptu-red);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.know-more-link:hover {
+    gap: 15px;
+    color: var(--ptu-blue);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .placement-card { flex: 0 0 calc(50% - 15px); }
+}
+
+@media (max-width: 768px) {
+    .placement-card { flex: 0 0 100%; }
+    .section-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+}
+
+/* =========================================
+   ADVANCED FAQ SECTION STYLING
+========================================= */
+.ptu-faq-section {
+    padding: 80px 0;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-header .eyebrow {
+    color: var(--ptu-red);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.faq-header .section-title {
+    font-size: 2.8rem;
+    color: var(--ptu-blue);
+    margin: 15px 0;
+}
+
+.faq-header .section-title span {
+    font-weight: 300;
+}
+
+/* FAQ Grid Layout */
+.faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #f8faff;
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+    border-color: var(--ptu-red);
+    box-shadow: 0 10px 25px rgba(214, 28, 28, 0.05);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 24px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--ptu-blue);
+    transition: color 0.3s ease;
+}
+
+.faq-question i {
+    font-size: 0.9rem;
+    color: #a0aec0;
+    transition: transform 0.4s ease;
+}
+
+/* Open State Animation */
+.faq-item.active {
+    background: #fff;
+    border-color: var(--ptu-red);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item.active .faq-question {
+    color: var(--ptu-red);
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(45deg);
+    color: var(--ptu-red);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.3s ease;
+    padding: 0 30px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding-bottom: 24px;
+}
+
+.faq-answer p {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.faq-footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.faq-footer a {
+    color: var(--ptu-red);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(214, 28, 28, 0.2);
+    transition: all 0.3s ease;
+}
+
+.faq-footer a:hover {
+    border-bottom-color: var(--ptu-red);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-header .section-title { font-size: 2.2rem; }
+}
+
+/* --- PTU Theme Footer --- */
 .site-footer {
-  background-color: #012140;
-  color: var(--white);
+  background-color: #012140; /* PTU Navy Blue */
+  color: #ffffff;
   padding: 60px 5% 20px;
   font-family: "Inter", sans-serif;
 }
 
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
   gap: 40px;
-  margin-bottom: 40px;
+  max-width: 1400px;
+  margin: 0 auto 40px;
 }
 
-.footer-col h3,
-.footer-col h4 {
-  margin-bottom: 15px;
+.footer-col h3, .footer-col h4 {
+  color: #ffffff;
+  margin-bottom: 20px;
   font-weight: 700;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 30px;
+  height: 2px;
+  background: #d61c1c; /* PTU Red */
 }
 
 .footer-col p {
   font-size: 14px;
-  margin-bottom: 8px;
+  line-height: 1.6;
   opacity: 0.85;
 }
 
-.footer-col ul {
+.footer-list {
   list-style: none;
   padding: 0;
 }
 
-.footer-col ul li {
-  margin-bottom: 8px;
-}
+.footer-list li { margin-bottom: 12px; }
 
-.footer-col ul li a {
+.footer-list a {
   text-decoration: none;
-  color: var(--white);
+  color: #ffffff;
   font-size: 14px;
-  opacity: 0.85;
-  transition: 0.3s;
+  opacity: 0.8;
+  transition: 0.3s ease;
 }
 
-.footer-col ul li a:hover {
+.footer-list a:hover {
   color: #d61c1c;
   opacity: 1;
+  padding-left: 5px;
 }
 
-.footer-stats {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 30px;
-  margin-bottom: 20px;
-  text-align: center;
-}
+.mobile-only { display: none; }
 
-.footer-stat {
-  flex: 1;
-  min-width: 180px;
-  margin: 10px 0;
-}
+/* --- Mobile Responsive (The Scroll Fix) --- */
+@media (max-width: 768px) {
+  .site-footer { padding: 40px 20px 20px; }
+  
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 
-.footer-stat h2 {
-  color: #d61c1c;
-  font-size: 28px;
-  margin-bottom: 5px;
+  .footer-col {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 15px 0;
+  }
+
+  .about-section { border-bottom: none; margin-bottom: 10px; }
+
+  .footer-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .footer-toggle::after { display: none; } /* Remove the red line on mobile */
+
+  .mobile-only { 
+    display: inline-block; 
+    transition: transform 0.3s ease;
+    font-size: 12px;
+  }
+
+  /* Initially hide lists on mobile */
+  .footer-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+  }
+
+  /* Active State for Accordion */
+  .footer-col.active .footer-list {
+    max-height: 500px;
+    padding-top: 15px;
+    transition: max-height 0.4s ease-in-out;
+  }
+
+  .footer-col.active .mobile-only {
+    transform: rotate(180deg);
+    color: #d61c1c;
+  }
 }
 
 .footer-bottom {
   text-align: center;
   font-size: 13px;
-  opacity: 0.7;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  padding-top: 15px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  margin-bottom: 8px;
-}
-
-.footer-icon {
-  color: #d61c1c;
-  font-size: 16px;
-}
-
-.contact-item a {
-  text-decoration: none;
-  color: #ffffff;
-  opacity: 0.85;
-  transition: 0.3s;
-}
-
-.contact-item a:hover {
-  color: #d61c1c;
-  opacity: 1;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.6;
 }
 
 /* ===================================== */

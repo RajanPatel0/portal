@@ -32,9 +32,15 @@
 
     <div id="stat-section"></div>
 
+    <div id="recruiters-section"></div>
+
     <div id="notices-load"></div>
 
+    <div id="latest-placements-load"></div>
+
     <div id="testimonial-section"></div>
+
+    <div id="faq-section"></div>
 
     <div id="footer-placeholder"></div>
 
@@ -74,6 +80,14 @@
         .then((data) => {
           document.getElementById("stat-section").innerHTML = data;
         });
+    </script>
+
+    <script>
+        fetch('components/companies.html')
+      .then(response => response.text())
+      .then(data => {
+          document.getElementById('recruiters-section').innerHTML = data;
+      });
     </script>
     
     <script>
@@ -132,13 +146,126 @@
     </script>
 
     <script>
-      // Load the Footer
-      fetch("components/footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data;
-        });
+      // Component Loader
+        fetch('components/latestPlacement.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('latest-placements-load').innerHTML = data;
+                initPlacementSlider(); // Initialize the slider logic after loading
+            });
+
+        // Simple Slider Logic
+        function initPlacementSlider() {
+            const track = document.getElementById('placements-track');
+            const next = document.getElementById('placement-next');
+            const prev = document.getElementById('placement-prev');
+            let index = 0;
+
+            next.addEventListener('click', () => {
+                const cardWidth = document.querySelector('.placement-card').offsetWidth + 30;
+                const max = track.children.length - (window.innerWidth > 1024 ? 3 : 1);
+                if (index < max) {
+                    index++;
+                    track.style.transform = `translateX(-${index * cardWidth}px)`;
+                }
+            });
+
+            prev.addEventListener('click', () => {
+                const cardWidth = document.querySelector('.placement-card').offsetWidth + 30;
+                if (index > 0) {
+                    index--;
+                    track.style.transform = `translateX(-${index * cardWidth}px)`;
+                }
+            });
+        }
     </script>
+
+    <script>
+        // 1. Fetch the FAQ component
+        fetch("components/faq.html")
+          .then((response) => response.text())
+          .then((data) => {
+            // 2. Inject the HTML into the container
+            const container = document.getElementById("faq-section");
+            container.innerHTML = data;
+
+            // 3. Initialize the Accordion logic ONLY after data is loaded
+            initFaqAccordion();
+          })
+          .catch(err => console.error("Error loading FAQ:", err));
+
+        function initFaqAccordion() {
+          const faqItems = document.querySelectorAll('.faq-item');
+
+          faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+              // Check if current item is already active
+              const isActive = item.classList.contains('active');
+
+              // Close all other items (Accordion effect)
+              faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+              });
+
+              // Toggle the clicked item (if it wasn't active, open it)
+              if (!isActive) {
+                item.classList.add('active');
+              }
+            });
+          });
+        }
+      </script>
+
+    <script>
+  // 1. Fetch the Footer
+  fetch("components/footer.html")
+    .then((response) => response.text())
+    .then((data) => {
+      // 2. Inject the HTML
+      document.getElementById("footer-placeholder").innerHTML = data;
+
+      // 3. IMPORTANT: Initialize the accordion logic ONLY after the HTML is injected
+      initFooterAccordion();
+    })
+    .catch(err => console.error("Error loading footer:", err));
+
+  // Footer Mobile Accordion Logic
+  function initFooterAccordion() {
+    // We select toggles here because they now exist in the DOM
+    const toggles = document.querySelectorAll('.footer-toggle');
+    
+    if (toggles.length > 0) {
+      toggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          // Check if we are on mobile view
+          if (window.innerWidth <= 768) {
+            const parent = toggle.parentElement;
+            
+            // Close other accordion columns
+            document.querySelectorAll('.accordion-col').forEach(col => {
+              if (col !== parent) col.classList.remove('active');
+            });
+
+            // Toggle the clicked one
+            parent.classList.toggle('active');
+          }
+        });
+      });
+    }
+  }
+
+  // Handle window resizing (Optional but professional)
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      // Remove active classes if user rotates phone to landscape/desktop
+      document.querySelectorAll('.accordion-col').forEach(col => {
+        col.classList.remove('active');
+      });
+    }
+  });
+</script>
 
     <script src="assets/js/hero-slider.js"></script>
 
